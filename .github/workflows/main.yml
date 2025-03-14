@@ -28,7 +28,7 @@ jobs:
           context: .
           dockerfile: Dockerfile
           push: false
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-app:$(date-'%Y%m%d%H%M%S')
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-app:latest
       - name: Docker hub login
         uses: docker/login-action@v3
         with:
@@ -40,5 +40,5 @@ jobs:
           context: .
           dockerfile: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-app:$(date-'%Y%m%d%H%M%S')
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/spring-boot-app:latest
 
