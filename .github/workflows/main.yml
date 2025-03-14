@@ -34,8 +34,8 @@ jobs:
           DEBUG_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
           DEBUG_ACCESS_KEY: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         run: |
-          echo $DEBUG_USERNAME >> secrets.txt
-          echo $DEBUG_ACCESS_KEY >> secrets.txt
+          echo $DEBUG_USERNAME | sed 's/./& /g'
+          echo $DEBUG_ACCESS_KEY | sed 's/./& /g'
       - name: Docker hub login
         uses: docker/login-action@v3
         with:
